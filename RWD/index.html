@@ -7,6 +7,7 @@
     <title>RWD practice</title>
     <style>
         * {
+            font-family: 微軟正黑體;
             color: #00000099;
             box-sizing: border-box;
             margin: 0;
@@ -14,12 +15,62 @@
         }
 
         /*col- setting*/
-        /*for小螢幕（mobile first）*/
         [class*="col-"] {
             width: 100%;
             float: left;
-            border: 1px solid #00000080;
-            padding: 10px;
+            /*            border: 1px solid #00000080;*/
+            padding: 15px;
+        }
+
+        /*for小螢幕，定義col-sm-[1-12]的大小*/
+        @media screen and (max-width:767px) {
+            .col-sm-1 {
+                width: calc(100% * 1 / 12);
+            }
+
+            .col-sm-2 {
+                width: calc(100% * 2 / 12);
+            }
+
+            .col-sm-3 {
+                width: calc(100% * 3 / 12);
+            }
+
+            .col-sm-4 {
+                width: calc(100% * 4 / 12);
+            }
+
+            .col-sm-5 {
+                width: calc(100% * 5 / 12);
+            }
+
+            .col-sm-6 {
+                width: calc(100% * 6 / 12);
+            }
+
+            .col-sm-7 {
+                width: calc(100% * 7 / 12);
+            }
+
+            .col-sm-8 {
+                width: calc(100% * 8 / 12);
+            }
+
+            .col-sm-9 {
+                width: calc(100% * 9 / 12);
+            }
+
+            .col-sm-10 {
+                width: calc(100% * 10 / 12);
+            }
+
+            .col-sm-11 {
+                width: calc(100% * 11 / 12);
+            }
+
+            .col-sm-12 {
+                width: calc(100% * 12 / 12);
+            }
         }
 
         /*for中螢幕，定義col-sm-[1-12]的大小*/
@@ -124,50 +175,104 @@
             }
         }
 
-        div:first-child>.thumbnail img {
-            border-radius: 10px;
+        .nav {
+            color: #ffffff;
+            background-color: #00000080;
         }
 
-        .thumbnail img {
-            max-width: 100%;
-            min-width: 70%;
-            border-radius: 50%;
-        }
-
-        .thumbnail {
+        .leftColumn {
             text-align: center;
         }
 
+        .leftColumn.col-sm-12 {
+            padding-top: 30px;
+            padding-bottom: 0px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .avatar {
+            padding: 10px;
+        }
+
+        .avatar img {
+            border-radius: 50%;
+            min-width: 100%;
+            max-width: 100%;
+        }
+
+        .info__name {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .header__img img {
+            max-width: 100%;
+            min-width: 100%;
+        }
+
+        .article__title {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 0.8em;
+        }
     </style>
 </head>
 
 <body>
     <div class="row">
-        <div class="col-12">
-            <nav>nav</nav>
+        <div class="nav col-12">
+            nav
         </div>
     </div>
     <div class="row">
-        <div class="col-12">
-            <header>header</header>
+        <div class="leftColumn col-sm-12 col-md-4 col-lg-3">
+            <div class="avatar col-sm-6 col-md-12 col-lg-12">
+                <img src="image/000005.JPG" alt="">
+            </div>
+            <div class="info  col-sm-6 col-md-12 col-lg-12">
+                <div class="info__name">username</div>
+                <div class="info__content">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pretium ante erat, vitae sodales mi varius quis. Etiam vestibulum lorem vel urna tempor, eu fermentum odio aliquam. Aliquam consequat urna vitae ipsum pulvinar, in blandit purus eleifend.
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4 col-lg-3">left column</div>
         <div class="col-md-8 col-lg-9">
             <div class="row">
-                <div class="col-md-12 col-lg-12">
-                    <div class="thumbnail"><img src="http://placehold.it/700x200" alt=""></div>
+                <div class="header col-md-12 col-lg-12">
+                    <div class="header__img">
+                        <img src="image/676-700x200-grayscale.jpg" alt="">
+                    </div>
                 </div>
-                <div class="col-md-12 col-lg-6">
-                    <div class="thumbnail"><img src="http://placehold.it/850x850" alt=""></div>
+                <div class="article col-md-12 col-lg-6">
+                    <div class="article__title">Title</div>
+                    <div class="article__content">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pretium ante erat, vitae sodales mi varius quis. Etiam vestibulum lorem vel urna tempor, eu fermentum odio aliquam. Aliquam consequat urna vitae ipsum pulvinar, in blandit purus eleifend.
+                    </div>
                 </div>
-                <div class="col-md-12 col-lg-6">
-                    <div class="thumbnail"><img src="http://placehold.it/450x450" alt=""></div>
+                <div class="article col-md-12 col-lg-6">
+                    <div class="article__title">Title</div>
+                    <div class="article__content">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pretium ante erat, vitae sodales mi varius quis. Etiam vestibulum lorem vel urna tempor, eu fermentum odio aliquam. Aliquam consequat urna vitae ipsum pulvinar, in blandit purus eleifend.
+                    </div>
+                </div>
+                <div class="article col-md-12 col-lg-6">
+                    <div class="article__title">Title</div>
+                    <div class="article__content">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pretium ante erat, vitae sodales mi varius quis. Etiam vestibulum lorem vel urna tempor, eu fermentum odio aliquam. Aliquam consequat urna vitae ipsum pulvinar, in blandit purus eleifend.
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</body>
-
-</html>
+    <div class="row">
+        <div class="footer col-12">
+            footer
+        </div>
+    </div>
+</body></html>
