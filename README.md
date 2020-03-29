@@ -5,7 +5,7 @@
 
 ## HTML&CSS
 - [RWD practice -- blog](https://j8453.github.io/HTML&CSS/RWD/index.html)
-- [form](https://j8453.github.io/HTML&CSS/form.html))
+- [form](https://j8453.github.io/HTML&CSS/form.html)
 
 ## JS
 - [Todo with jQuery](https://j8453.github.io/JS/jQuery/todo.html)
