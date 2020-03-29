@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>google form</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 微軟正黑體;
+        }
+
+        span {
+            color: darkred;
+        }
+
+        body {
+            background-color: #E29587;
+        }
+
+        .header {
+            width: 75%;
+            margin: 10px auto;
+        }
+
+        img {
+            min-width: 100%;
+            max-width: 100%;
+            border-radius: 7.5px;
+        }
+
+        .box {
+            background-color: white;
+            opacity: 0.85;
+            width: 75%;
+            margin: 15px auto;
+            padding: 10px;
+            border-radius: 7.5px;
+            transition: all 0.1s ease-in;
+        }
+
+        .box[data-reminder="y"] {
+            background-color: rgb(213, 213, 213);
+        }
+
+        .box[data-reminder="y"]::after {
+            content: "此為必填!";
+            font-size: 0.8em;
+            color: darkred;
+        }
+
+        p {
+            font-size: 0.8em;
+        }
+
+        label {
+            font-weight: bold;
+            margin: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            width: 50%;
+            height: 40px;
+            font-size: 1em;
+        }
+
+        fieldset {
+            border: none;
+        }
+
+        legend {
+            font-size: 0.8em;
+        }
+
+        textarea {
+            width: 50%;
+            height: 80px;
+            font-size: 1em;
+
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <img src="https://picsum.photos/800/400/?grayscale" alt="">
+    </div>
+    <div class="box">
+        <h1>國際志工服務計畫報名表單</h1>
+        <p>詳情請參考：https://hello.com/how/are/you<br>
+            表單截止時間：2019.12.05 24:00</p>
+        <p><span>*必填</span></p>
+    </div>
+
+    <form id="form">
+        <div class="box" data-reminder="ny">
+            <label for="email">E-mail Address<span> *</span><br></label>
+            <input type="email" id="email" name="email" placeholder="type in..." class="req">
+        </div>
+
+        <div class="box" data-reminder="ny">
+            <label for="nickname">Nickname<span> *</span><br></label>
+            <input type="text" id="nickname" name="nickname" placeholder="type in..." class="req">
+        </div>
+        <div class="box" data-reminder="ny">
+            <label>報名梯次<span> *</span></label>
+            <fieldset>
+                <legend>Single choice.</legend>
+                <p><input type="radio" name="type" value="first" class="radio">第一梯次</p>
+                <p><input type="radio" name="type" value="second" class="radio">第二梯次</p>
+            </fieldset>
+        </div>
+        <div class="box" data-reminder="ny">
+            <label for="background">過去是否擁有其他國際服務相關經驗？<span> *</span></label>
+            <p>例如：無、大學參與XX志工社至柬埔寨舉辦服務、參與XX組織之XX活動...</p>
+            <input type="text" id="background" name="background" placeholder="type in..." class="req">
+        </div>
+        <div class="box">
+            <label for="other">報名動機</label>
+            <p>Anything you want to share.</p>
+            <textarea type="text" id="other" name="other" placeholder="type in..."></textarea>
+        </div>
+        <div class="box">
+            <input type="submit">
+        </div>
+    </form>
+
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('form').addEventListener('submit', e => {
+
+                //必填輸入框驗證
+                var submit = [];
+                var req = document.getElementsByClassName('req');
+                for (var i = 0; i < req.length; i++) {
+                    if (req[i].value === '') {
+                        e.preventDefault();
+                        req[i].parentNode.setAttribute("data-reminder", "y");
+                        submit[i] = 'n';
+                    } else {
+                        req[i].parentNode.setAttribute("data-reminder", "ny");
+                    }
+                }
+
+                //必填radio驗證
+                var submitB = '';
+                var radio = document.getElementsByClassName('radio');
+                if (!radio[0].checked && !radio[1].checked) {
+                    e.preventDefault();
+                    radio[0].parentNode.parentNode.parentNode.setAttribute("data-reminder", "y");
+                } else {
+                    radio[0].parentNode.parentNode.parentNode.setAttribute("data-reminder", "ny");
+                    submitB = 'y';
+                }
+
+                if (submit.indexOf('n') === -1 && submitB === 'y') alert('submit!');
+
+            })
+        })
+
+    </script>
+
+</body>
+
+</html>

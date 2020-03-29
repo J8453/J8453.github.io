@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ajax practice</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+
+        * {
+            font-size: 1em;
+            box-sizing: border-box;
+            color: #00000099;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        body {
+            background: #d9a7c7;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #fffcdc, #d9a7c7);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #fffcdc, #d9a7c7);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            height: 100vh;
+            min-width: 350px;
+            max-width: 40%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .container>div {
+            margin: 5px;
+            padding: 10px;
+            border: 5px solid #ffffff99;
+        }
+
+        .container>div:first-child {
+            text-align: center;
+        }
+
+        input {
+            height: 36px;
+            width: 36px;
+            border: 1px solid #00000080;
+            background-color: transparent;
+        }
+
+        button {
+            height: 36px;
+            border: 1px solid #00000080;
+            background-color: transparent;
+            transition: all 0.2s;
+        }
+
+        button:hover {
+            cursor: pointer;
+            color: #ffffff99;
+            background-color: #00000080;
+        }
+
+        .response {
+            position: relative;
+        }
+
+        span.id {
+            position: absolute;
+            right: 0px;
+            top: 5px;
+            font-size: 10em;
+            font-weight: bold;
+            color: #ffffff40;
+        }
+
+        .content {
+            padding: 17px;
+        }
+
+        .title {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .des {
+            font-size: 1.05em;
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            get article by id:
+            <input type="text" name="query" />
+            <button name="submit">send request</button>
+        </div>
+        <div class="response">
+            <div class="content">
+                response:
+            </div>
+            <span class="id"></span>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('button').addEventListener('click', () => {
+                const index = document.querySelector('input[name=query]').value;
+                if (index === '') return;
+                const request = new XMLHttpRequest();
+                request.open('GET', 'https://jsonplaceholder.typicode.com/posts/' + index, true);
+                request.onload = function() {
+                    if (request.status >= 200 && request.status < 400) {
+                        const resp = JSON.parse(request.response);
+                        document.querySelector('.response .id').innerText = resp.id;
+                        document.querySelector('.content').innerHTML = `
+                            <div class="title">${resp.title}</div>
+                            <div class="des">${resp.body}</div> `;
+                    } else {
+                        document.querySelector('.content').innerText = 'error: please enter 1-100';
+                    }
+                };
+                request.onerror = function() {};
+                request.send();
+            })
+        })
+
+    </script>
+</body>
+
+</html>

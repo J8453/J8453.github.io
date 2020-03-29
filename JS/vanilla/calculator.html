@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>calculator</title>
+    <style>
+        
+        * {
+            box-sizing: border-box;
+        }
+
+        .cal {
+            width: 400px;
+            border: 1px solid dimgrey;
+        }
+
+        .screen {
+            width: 100%;
+            border: 1px solid dimgrey;
+            display: flex;
+            flex-direction: row-reverse;
+            padding: 5px 20px;
+            font-weight: bold;
+            font-size: 3em;
+            color: dimgrey;
+        }
+
+        .btn {
+            width: 100%;
+            border: 1px solid dimgrey;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 10px;
+        }
+
+        button {
+            width: 22.5%;
+            height: 30px;
+            margin: 3px 1.25%;
+            font-size: 1em;
+            transition: all 0.1s ease-in;
+        }
+
+        button:hover {
+            background-color: #e45e54;
+            color: white;
+            border: none;
+            opacity: 0.85;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="cal">
+        <div class="screen" data-renew="yes">0</div>
+        <div class="btn">
+            <button>(</button>
+            <button>)</button>
+            <button>%</button>
+            <button class="AC">AC</button>
+            <button class="num">7</button>
+            <button class="num">8</button>
+            <button class="num">9</button>
+            <button class="computor" id="divide">/</button>
+            <button class="num">4</button>
+            <button class="num">5</button>
+            <button class="num">6</button>
+            <button class="computor" id="multiply">x</button>
+            <button class="num">1</button>
+            <button class="num">2</button>
+            <button class="num">3</button>
+            <button class="computor" id="minus">-</button>
+            <button>.</button>
+            <button class="num">0</button>
+            <button class="cpt" data-type="">=</button>
+            <button class="computor" id="plus">+</button>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+    
+        // 0~9
+        document.addEventListener('DOMContentLoaded', function() {
+            var numArr = document.getElementsByClassName("num");
+            for (var i = 0; i < numArr.length; i++) {
+                //numArr[i].onclick = function() {
+                //    show(this);
+                numArr[i].addEventListener('click', e=>{
+                    show(e.target);
+                })
+                }
+            })
+
+        var screen = document.querySelector('.screen');
+        var equal = document.querySelector('.cpt');
+        
+        function show(hit) {
+            var screenNum = screen.innerHTML;
+            var renew = screen.getAttribute('data-renew')
+            var num = hit.firstChild.nodeValue;
+            if (screenNum === '0' || renew === 'yes') {
+                screen.innerHTML = num;
+                screen.setAttribute('data-renew','no');
+            } else {
+                screen.innerHTML += num;
+            }
+        }
+        
+        // AC
+        document.querySelector('.AC').addEventListener('click',()=>{
+            screen.innerHTML='0';
+            screen.setAttribute('data-renew','yes');
+        })
+        
+        // +-*/
+        var tempA;
+        var compArr = document.getElementsByClassName("computor");
+        for (var i = 0; i < compArr.length; i++) {
+            compArr[i].addEventListener('click', e =>{
+                temp(e.target)
+            })
+        }
+        
+        function temp(target){
+            tempA = screen.innerHTML;
+            var compType = target.getAttribute("id");
+            equal.setAttribute('data-type',compType);
+            renew();
+        }
+        
+        // =
+        var tempB;
+        equal.addEventListener('click', function() {
+            tempB = screen.innerHTML;
+            screen.innerHTML = compute(tempA,tempB);
+            equal.setAttribute('data-type','');
+            renew();
+        })
+        
+        function compute(a,b){
+            if (equal.getAttribute('data-type')==='plus') return(parseInt(a)+parseInt(b));
+            if (equal.getAttribute('data-type')==='minus') return(parseInt(a)-parseInt(b));
+            if (equal.getAttribute('data-type')==='multiply') return(parseInt(a)*parseInt(b));
+            if (equal.getAttribute('data-type')==='divide') return(parseInt(a)/parseInt(b));
+        }
+        
+        function renew(){
+            screen.setAttribute('data-renew','yes');
+        }
+        
+    </script>
+
+</body>
+
+</html>
