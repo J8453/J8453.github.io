@@ -4,25 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
     <title>RWD practice</title>
     <style>
         * {
-            font-family: 微軟正黑體;
+            font-family: 'Roboto Mono', monospace;
             color: #00000099;
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .body {
+            margin-top: 15px;
+        }
+
         /*col- setting*/
         [class*="col-"] {
             width: 100%;
             float: left;
-            /*            border: 1px solid #00000080;*/
+            /*border: 1px solid #00000080;*/
             padding: 15px;
         }
 
-        /*for小螢幕，定義col-sm-[1-12]的大小*/
         @media screen and (max-width:767px) {
             .col-sm-1 {
                 width: calc(100% * 1 / 12);
@@ -73,7 +83,6 @@
             }
         }
 
-        /*for中螢幕，定義col-sm-[1-12]的大小*/
         @media screen and (min-width:768px) and (max-width:991px) {
             .col-md-1 {
                 width: calc(100% * 1 / 12);
@@ -124,7 +133,6 @@
             }
         }
 
-        /*for大螢幕，定義col-md-[1-12]的大小*/
         @media screen and (min-width:992px) {
             .col-lg-1 {
                 width: calc(100% * 1 / 12);
@@ -204,6 +212,7 @@
 
         .info__name {
             font-size: 1.5em;
+            font-weight: bold;
             margin-bottom: 10px;
         }
 
@@ -221,21 +230,20 @@
             text-align: center;
             font-size: 0.8em;
         }
+
     </style>
 </head>
 
 <body>
-    <div class="row">
-        <div class="nav col-12">
-            nav
-        </div>
+    <div class="nav col-12">
+        login
     </div>
-    <div class="row">
+    <div class="body col-sm-11 col-md-10 col-lg-9">
         <div class="leftColumn col-sm-12 col-md-4 col-lg-3">
-            <div class="avatar col-sm-6 col-md-12 col-lg-12">
+            <div class="avatar col-sm-5 col-md-12 col-lg-12">
                 <img src="image/000005.JPG" alt="">
             </div>
-            <div class="info  col-sm-6 col-md-12 col-lg-12">
+            <div class="info  col-sm-7 col-md-12 col-lg-12">
                 <div class="info__name">username</div>
                 <div class="info__content">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pretium ante erat, vitae sodales mi varius quis. Etiam vestibulum lorem vel urna tempor, eu fermentum odio aliquam. Aliquam consequat urna vitae ipsum pulvinar, in blandit purus eleifend.
@@ -243,36 +251,34 @@
             </div>
         </div>
         <div class="col-md-8 col-lg-9">
-            <div class="row">
-                <div class="header col-md-12 col-lg-12">
-                    <div class="header__img">
-                        <img src="image/676-700x200-grayscale.jpg" alt="">
-                    </div>
+            <div class="header col-md-12 col-lg-12">
+                <div class="header__img">
+                    <img src="image/676-700x200-grayscale.jpg" alt="">
                 </div>
-                <div class="article col-md-12 col-lg-6">
-                    <div class="article__title">Title</div>
-                    <div class="article__content">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pretium ante erat, vitae sodales mi varius quis. Etiam vestibulum lorem vel urna tempor, eu fermentum odio aliquam. Aliquam consequat urna vitae ipsum pulvinar, in blandit purus eleifend.
-                    </div>
+            </div>
+            <div class="article col-md-12 col-lg-6">
+                <div class="article__title">Title</div>
+                <div class="article__content">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pretium ante erat, vitae sodales mi varius quis. Etiam vestibulum lorem vel urna tempor, eu fermentum odio aliquam. Aliquam consequat urna vitae ipsum pulvinar, in blandit purus eleifend.
                 </div>
-                <div class="article col-md-12 col-lg-6">
-                    <div class="article__title">Title</div>
-                    <div class="article__content">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pretium ante erat, vitae sodales mi varius quis. Etiam vestibulum lorem vel urna tempor, eu fermentum odio aliquam. Aliquam consequat urna vitae ipsum pulvinar, in blandit purus eleifend.
-                    </div>
+            </div>
+            <div class="article col-md-12 col-lg-6">
+                <div class="article__title">Title</div>
+                <div class="article__content">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pretium ante erat, vitae sodales mi varius quis. Etiam vestibulum lorem vel urna tempor, eu fermentum odio aliquam. Aliquam consequat urna vitae ipsum pulvinar, in blandit purus eleifend.
                 </div>
-                <div class="article col-md-12 col-lg-6">
-                    <div class="article__title">Title</div>
-                    <div class="article__content">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pretium ante erat, vitae sodales mi varius quis. Etiam vestibulum lorem vel urna tempor, eu fermentum odio aliquam. Aliquam consequat urna vitae ipsum pulvinar, in blandit purus eleifend.
-                    </div>
+            </div>
+            <div class="article col-md-12 col-lg-6">
+                <div class="article__title">Title</div>
+                <div class="article__content">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pretium ante erat, vitae sodales mi varius quis. Etiam vestibulum lorem vel urna tempor, eu fermentum odio aliquam. Aliquam consequat urna vitae ipsum pulvinar, in blandit purus eleifend.
                 </div>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="footer col-12">
-            footer
-        </div>
+    <div class="footer col-12">
+        footer
     </div>
-</body></html>
+</body>
+
+</html>
