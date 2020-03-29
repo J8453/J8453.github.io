@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Todos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f6f5f6;
+        }
+
+        #title {
+            color: #eddcde;
+            text-align: center;
+        }
+
+        .container {
+            position: relative;
+            padding: 0px;
+        }
+
+        .main,
+        .deco,
+        .deco2 {
+            width: 100%;
+            height: 400px;
+            background-color: #fefefe;
+            /*            box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);*/
+        }
+
+        .main {
+            z-index: 10;
+            position: absolute;
+            filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.1));
+        }
+
+        .deco {
+            z-index: 2;
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.15));
+        }
+
+        .deco2 {
+            z-index: 1;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.15));
+        }
+
+        .main {
+            padding: 5px;
+            opacity: 0.8;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .items {
+            height: 100%;
+            overflow: scroll;
+        }
+
+        .item.completed {
+            background-color: #e4dedf60;
+            color: #00000060;
+        }
+
+        .item.selected {
+            background-color: #e4dedf;
+        }
+
+        .item:hover {
+            cursor: pointer;
+            background-color: #e4dedf60;
+            transform: scale(1.03);
+        }
+
+        .item.selected:hover {
+            color: #00000080;
+        }
+
+        .footer {
+            text-align: center;
+        }
+
+        .input {
+            height: 48px;
+            display: flex;
+        }
+
+        .footer>button {
+            border: none;
+            background-color: transparent;
+        }
+
+        .footer>button:hover {
+            color: #debfc3;
+        }
+
+        .footer>button:disabled {
+            color: black;
+            border: 2px solid #debfc3;
+            border-radius: 4px;
+        }
+
+        .input {
+            margin-bottom: 5px;
+        }
+
+        input[type="checkbox"] {
+            margin: 10px;
+        }
+
+        input[type="checkbox"]checked {}
+
+        .manipulate {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .manipulate span {
+            margin: 0 5px;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .manipulate span:hover {
+            cursor: pointer;
+            color: #debfc3;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="title">
+        <h1 class="display-1">todos</h1>
+    </div>
+    <div class="container col-11 col-sm-8 col-md-7">
+        <div class="main">
+            <form class="input">
+                <input class="newItem form-control form-control-lg" type="text" placeholder="What needs to be done?">
+                <button type="submit" class="btn btn-secondary btn-sm">SUBMIT</button>
+            </form>
+            <div class="items">
+                <div class="item completed"><input type="checkbox" value="item1" disabled>do dishes --completed!</div>
+                <div class="item active"><input type="checkbox" value="item2">buy food</div>
+            </div>
+            <div class="manipulate"><span class="done">V </span><span class="delete">X</span></div>
+            <div class="footer">
+                <button id="all" disabled>All</button>
+                <button id="active">Active</button>
+                <button id="completed">Completed</button>
+            </div>
+        </div>
+        <div class="deco"></div>
+        <div class="deco2"></div>
+    </div>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(() => {
+
+            $('.footer>button').each(function() {
+                $(this).click(() => {
+                    $('.footer>button:disabled').removeAttr('disabled');
+                    $(this).attr('disabled', 'true');
+                })
+            })
+
+            // get newItem & add in the list
+            $('button[type="submit"]').click(e => {
+                e.preventDefault();
+                var newItem = $('.newItem').val();
+                $('.newItem').val('');
+
+                $(`<div class="item active"><input type="checkbox" value="${newItem}">${newItem}</div>`).bind('click', bindselectItem).appendTo($('.items'));
+            })
+
+            // 記錄選到的item
+            var arr = [];
+
+            // 現有的item裝eventlistener
+            function selectItem() {
+                $('.item').each(function() {
+                    $(this).click(() => {
+                        if (!$(this).children().attr('checked')) {
+                            $(this).children().attr('checked', 'true');
+                            $(this).addClass('selected');
+                        } else {
+                            $(this).children().removeAttr('checked');
+                            $(this).removeClass('selected');
+                        }
+
+                        // 選到的item放進arr中
+                        var clicked = $(this)[0];
+                        var addorNot = ''
+                        arr.forEach((ele, index) => {
+                            if (ele[0] === clicked) {
+                                arr.splice(index, 1);
+                                addorNot += 'n';
+                                return;
+                            } else {
+                                addorNot += 'y';
+                            }
+                        })
+                        if (addorNot.indexOf('n') === -1) arr.push($(this));
+                    })
+                })
+            }
+            selectItem();
+
+            // 動態新增的item裝eventlistener
+            function bindselectItem() {
+                if (!$(this).children().attr('checked')) {
+                    $(this).children().attr('checked', 'true');
+                    $(this).addClass('selected');
+                } else {
+                    $(this).children().removeAttr('checked');
+                    $(this).removeClass('selected');
+                }
+
+                // 選到的item放進arr中
+                var clickeditem = $(this)[0];
+
+                arr.forEach((ele, index) => {
+                    if (ele[0] === clickeditem) {
+                        arr.splice(index, 1);
+                        return;
+                    }
+                })
+                if (arr.every((element) => element[0] !== clickeditem)) arr.push($(this));
+            }
+
+            $('.delete').click(() => {
+                if (confirm('Are you sure ?')) {
+                    for (var i = 0; i < arr.length; i++) {
+                        arr[i].fadeOut().remove();
+                    }
+                    arr = [];
+                }
+            })
+
+            $('.done').click(() => {
+                for (var i = 0; i < arr.length; i++) {
+                    arr[i].removeClass('active').addClass('completed').removeClass('selected');
+                    arr[i].children().removeAttr('checked');
+                    arr[i].append(`  --completed!`);
+                }
+                arr = [];
+            })
+
+            $('#completed').click(() => {
+                $('.completed').fadeIn();
+                $('.active').fadeOut();
+                cleanSelect()
+                lockForm();
+            })
+
+            $('#active').click(() => {
+                $('.active').fadeIn();
+                $('.completed').fadeOut();
+                cleanSelect()
+                openForm();
+            })
+
+            $('#all').click(() => {
+                $('.item').fadeIn();
+                cleanSelect()
+                openForm();
+            })
+
+            function cleanSelect() {
+                arr = [];
+                $('.item').removeClass('selected');
+                $('input[type="checkbox"]').removeAttr('checked');
+            }
+
+            function lockForm() {
+                $('form>input').attr('disabled', 'true');
+                $('form>button').attr('disabled', 'true');
+            }
+
+            function openForm() {
+                if ($('form>input').attr('disabled')) {
+                    $('form>input').removeAttr('disabled');
+                    $('form>button').removeAttr('disabled');
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>
