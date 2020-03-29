@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RWD practice</title>
+    <style>
+        * {
+            color: #00000099;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /*col- setting*/
+        /*for小螢幕（mobile first）*/
+        [class*="col-"] {
+            width: 100%;
+            float: left;
+            border: 1px solid #00000080;
+            padding: 10px;
+        }
+
+        /*for中螢幕，定義col-sm-[1-12]的大小*/
+        @media screen and (min-width:768px) and (max-width:991px) {
+            .col-md-1 {
+                width: calc(100% * 1 / 12);
+            }
+
+            .col-md-2 {
+                width: calc(100% * 2 / 12);
+            }
+
+            .col-md-3 {
+                width: calc(100% * 3 / 12);
+            }
+
+            .col-md-4 {
+                width: calc(100% * 4 / 12);
+            }
+
+            .col-md-5 {
+                width: calc(100% * 5 / 12);
+            }
+
+            .col-md-6 {
+                width: calc(100% * 6 / 12);
+            }
+
+            .col-md-7 {
+                width: calc(100% * 7 / 12);
+            }
+
+            .col-md-8 {
+                width: calc(100% * 8 / 12);
+            }
+
+            .col-md-9 {
+                width: calc(100% * 9 / 12);
+            }
+
+            .col-md-10 {
+                width: calc(100% * 10 / 12);
+            }
+
+            .col-md-11 {
+                width: calc(100% * 11 / 12);
+            }
+
+            .col-md-12 {
+                width: calc(100% * 12 / 12);
+            }
+        }
+
+        /*for大螢幕，定義col-md-[1-12]的大小*/
+        @media screen and (min-width:992px) {
+            .col-lg-1 {
+                width: calc(100% * 1 / 12);
+            }
+
+            .col-lg-2 {
+                width: calc(100% * 2 / 12);
+            }
+
+            .col-lg-3 {
+                width: calc(100% * 3 / 12);
+            }
+
+            .col-lg-4 {
+                width: calc(100% * 4 / 12);
+            }
+
+            .col-lg-5 {
+                width: calc(100% * 5 / 12);
+            }
+
+            .col-lg-6 {
+                width: calc(100% * 6 / 12);
+            }
+
+            .col-lg-7 {
+                width: calc(100% * 7 / 12);
+            }
+
+            .col-lg-8 {
+                width: calc(100% * 8 / 12);
+            }
+
+            .col-lg-9 {
+                width: calc(100% * 9 / 12);
+            }
+
+            .col-lg-10 {
+                width: calc(100% * 10 / 12);
+            }
+
+            .col-lg-11 {
+                width: calc(100% * 11 / 12);
+            }
+
+            .col-lg-12 {
+                width: calc(100% * 12 / 12);
+            }
+        }
+
+        div:first-child>.thumbnail img {
+            border-radius: 10px;
+        }
+
+        .thumbnail img {
+            max-width: 100%;
+            min-width: 70%;
+            border-radius: 50%;
+        }
+
+        .thumbnail {
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="row">
+        <div class="col-12">
+            <nav>nav</nav>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <header>header</header>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-lg-3">left column</div>
+        <div class="col-md-8 col-lg-9">
+            <div class="row">
+                <div class="col-md-12 col-lg-12">
+                    <div class="thumbnail"><img src="http://placehold.it/700x200" alt=""></div>
+                </div>
+                <div class="col-md-12 col-lg-6">
+                    <div class="thumbnail"><img src="http://placehold.it/850x850" alt=""></div>
+                </div>
+                <div class="col-md-12 col-lg-6">
+                    <div class="thumbnail"><img src="http://placehold.it/450x450" alt=""></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
