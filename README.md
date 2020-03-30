@@ -9,7 +9,7 @@ I'd like to say that it'll grow up with more functions soon.<br><br>
 You're more than welcome to take a look then :).<br><br>
 The project is developed as a single page application and uses:
     - React + Redux
-    - Express + MySQL<br>
+    - Express + MySQL<br><br>
     #### Github Repo: [github.com/J8453/gallery](https://github.com/J8453/gallery)
 
 ## HTML&CSS
