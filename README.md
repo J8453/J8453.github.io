@@ -1,10 +1,17 @@
-# j8453's
+# DEMOS
 
-## project
-- [theGallery](https://thegallery.onthewifi.com/) (2020.03)
+## personal project
+- [thegallery.onthewifi.com/](https://thegallery.onthewifi.com/) (2020.03)
 ![theGallery-homepage](/images/homepage.png)
-![theGallery-userpage](/images/userpage.png)
-![theGallery-albumpage](/images/albumpage.png)
+This is a image-sharing platform now only features basic album creating and managing function.
+Since this project is driven by my interest (photographing) and that I'm still continuously working on it,
+I'd like to say that it'll grow up with more functions soon. You're more than welcome to take a look then :). 
+
+The project is developed as a single page application and uses:
+    - React + Redux
+    - Express + MySQL
+    
+Github Repo: [github.com/J8453/gallery](https://github.com/J8453/gallery)
 
 ## HTML&CSS
 - [flexbox practices](https://j8453.github.io/HTML&CSS/flexbox) (2020.01)
