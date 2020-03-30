@@ -15,6 +15,7 @@ Github Repo: [github.com/J8453/gallery](https://github.com/J8453/gallery)
 ## HTML&CSS
 - [flexbox practices](https://j8453.github.io/HTML&CSS/flexbox) (2020.01)
 - [RWD practice -- blog](https://j8453.github.io/HTML&CSS/RWD/index.html) (2019.12)
+![RWD practice](/images/RWD.png)
 - [google form imitation (with basic validation)](https://j8453.github.io/HTML&CSS/form.html) (2019.12.05)
 
 ## JS
