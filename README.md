@@ -6,11 +6,9 @@
 This is a image-sharing platform now only features basic album creating and managing function.
 Since this project is driven by my interest (photographing) and that I'm still continuously working on it,
 I'd like to say that it'll grow up with more functions soon. You're more than welcome to take a look then :). 
-
 The project is developed as a single page application and uses:
     - React + Redux
     - Express + MySQL
-    
 Github Repo: [github.com/J8453/gallery](https://github.com/J8453/gallery)
 
 ## HTML&CSS
