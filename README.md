@@ -33,9 +33,10 @@ Github Repo: [github.com/J8453/layout_imitation_ig](https://github.com/J8453/lay
 ![todos](/images/todos.png)
 - [AJAX practice -- GET method](https://j8453.github.io/JS/vanilla/ajax.html) (2019.12)
 
----
 
+<!--
 JS (these are VERY VERY VERY old......and ugly :p)
 - [calculator](https://j8453.github.io/JS/vanilla/calculator.html) (2019.12.04)
 - [counter](https://j8453.github.io/JS/vanilla/counter.html) (2019.12.01)
+-->
 
