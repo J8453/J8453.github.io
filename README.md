@@ -13,7 +13,7 @@ The project is developed as a single page application and uses:
     #### Github Repo: [github.com/J8453/gallery](https://github.com/J8453/gallery)
 
 ## React Practice
-- [instagram layout imitation](https://j8453.github.io/React/igimitation.html) (2020.04)
+- [instagram layout imitation](https://j8453.github.io/React/igimitation.html) (2020.04)<br>
 I was trying to mock instagram layout with 'React' and UI component library 'Semantic UI React'.
 ![igimitation](/images/igimitation.png)
 The following is real instagram layout:
