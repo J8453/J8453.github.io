@@ -14,7 +14,8 @@ The project is developed as a single page application and uses:
 
 ## React Practice
 - [instagram layout imitation](https://j8453.github.io/React/igimitation.html) (2020.04)<br>
-I was trying to mock instagram layout with 'React' and 'Semantic UI React' (an UI component library).
+I was trying to mock instagram layout with 'React' and 'Semantic UI React' (an UI component library).<br><br>
+It's also a RWD practice.<br><br>
 The following is my output:
 ![igimitation](/images/igimitation.png)
 As a contrast, the following is real instagram layout:
