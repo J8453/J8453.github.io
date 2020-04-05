@@ -23,9 +23,9 @@ As a contrast, the following is real instagram layout:
 Github Repo: [github.com/J8453/layout_imitation_ig](https://github.com/J8453/layout_imitation_ig)
 
 - [styled-component practice](https://j8453.github.io/React/styled-component/index.html) (2020.04)<br>
-It's a simple practice with 'Styled-Components' (a CSS-in-JS library).
+It's a simple practice with 'Styled-Components' (a CSS-in-JS library), and use 'Styled-System' to support.
 ![styled-component-prac](/images/styled-component-prac.png)
-Code: [github.com/J8453/styled-component-prac](https://github.com/J8453/J8453.github.io/tree/master/React/styled-component/src/App.js)
+Code: [github.com/J8453/styled-component-prac/App.js](https://github.com/J8453/J8453.github.io/tree/master/React/styled-component/src/App.js)
 
 
 ## HTML&CSS
