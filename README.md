@@ -22,6 +22,8 @@ As a contrast, the following is real instagram layout:
 ![igimitation_contrast](/images/igimitation_contrast.png)
 Github Repo: [github.com/J8453/layout_imitation_ig](https://github.com/J8453/layout_imitation_ig)
 
+- [styled-component practice](https://j8453.github.io/React/styled-component/index.html) (2020.04)<br>
+
 
 ## HTML&CSS
 - [flexbox practices](https://j8453.github.io/HTML&CSS/flexbox) (2020.01)
