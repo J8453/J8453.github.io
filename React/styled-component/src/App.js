@@ -33,15 +33,15 @@ class Boxes extends React.Component {
 
   render() {
   	return(
-	  <div>
+  	  <div>
   	    <div className="Boxes">
-	      <Box
-	        name="yellow"
-	        onClick={this.handleClick.bind(this, 'yellow')}
+          <Box
+            name="yellow"
+            onClick={this.handleClick.bind(this, 'yellow')}
             selected={this.state.selected} />
-  	      <Box
-	        name="pink"
-	        onClick={this.handleClick.bind(this, 'pink')}
+          <Box
+          name="pink"
+          onClick={this.handleClick.bind(this, 'pink')}
             selected={this.state.selected} />
           <Box
             name="grey"
@@ -51,26 +51,24 @@ class Boxes extends React.Component {
             name="green"
             onClick={this.handleClick.bind(this, 'green')}
             selected={this.state.selected} />
-	    </div>
-	    <Title color={this.state.selected}>
-	      click the cubes to<br/> toggle styles
-	    </Title>
-	    <Background background={this.state.selected} />
-	  </div>
+        </div>
+        <Title color={this.state.selected}>
+          click the cubes to<br/> toggle styles
+        </Title>
+  	    <Background background={this.state.selected} />
+  	  </div>
   	)
   }
 }
 
-class Box extends React.Component {
-  render() {
-  	return(
-  	  <StyledBox
-	    bg={this.props.name}
-	    m="10px 20px"
-	    selected={this.props.selected}
-	    onClick={this.props.onClick} />
-  	)
-  }
+const Box = (props) => {
+  return(
+    <StyledBox
+    bg={props.name}
+    m="10px 20px"
+    selected={props.selected}
+    onClick={props.onClick} />
+  )
 }
 
 const StyledBox = styled.div`
