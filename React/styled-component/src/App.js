@@ -35,22 +35,26 @@ class Boxes extends React.Component {
   	return(
   	  <div>
   	    <div className="Boxes">
-          <Box
-            name="yellow"
-            onClick={this.handleClick.bind(this, 'yellow')}
-            selected={this.state.selected} />
-          <Box
-          name="pink"
-          onClick={this.handleClick.bind(this, 'pink')}
-            selected={this.state.selected} />
-          <Box
-            name="grey"
-            onClick={this.handleClick.bind(this, 'grey')}
-            selected={this.state.selected} />
-          <Box
-            name="green"
-            onClick={this.handleClick.bind(this, 'green')}
-            selected={this.state.selected} />
+          <StyledBox
+            bg='yellow'
+            m='10px 20px'
+            selected={this.state.selected}
+            onClick={this.handleClick.bind(this, 'yellow')} />
+          <StyledBox
+            bg='pink'
+            m='10px 20px'
+            selected={this.state.selected}
+            onClick={this.handleClick.bind(this, 'pink')} />
+          <StyledBox
+            bg='grey'
+            m='10px 20px'
+            selected={this.state.selected}
+            onClick={this.handleClick.bind(this, 'grey')} />
+          <StyledBox
+            bg='green'
+            m='10px 20px'
+            selected={this.state.selected}
+            onClick={this.handleClick.bind(this, 'green')} />
         </div>
         <Title color={this.state.selected}>
           click the cubes to<br/> toggle styles
@@ -61,17 +65,15 @@ class Boxes extends React.Component {
   }
 }
 
-const Box = (props) => {
+const Box = ({className, onClick}) => {
   return(
-    <StyledBox
-    bg={props.name}
-    m="10px 20px"
-    selected={props.selected}
-    onClick={props.onClick} />
+    <div
+      className={className}
+      onClick={onClick} />
   )
 }
 
-const StyledBox = styled.div`
+const StyledBox = styled(Box)`
   ${color}
   ${space}
   border: 3px solid white;
@@ -82,11 +84,10 @@ const StyledBox = styled.div`
   transition: all 0.2s ease-in;
 
   &:hover {
-  	cursor: pointer;
-  	opacity: 1;
+    cursor: pointer;
+    opacity: 1;
   }
 `
-
 const Background = styled.div`
   ${background}
   width: 100%;
@@ -113,8 +114,8 @@ const Title = styled.div`
 function App() {
   return (
   	<ThemeProvider theme={theme}>
-	  <Boxes />
-	</ThemeProvider>
+  	  <Boxes />
+  	</ThemeProvider>
   );
 }
 
