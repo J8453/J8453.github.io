@@ -27,6 +27,11 @@ It's a simple practice with 'Styled-Components' (a CSS-in-JS library), and use '
 ![styled-component-prac](/images/styled-component-prac.png)
 Code: [github.com/J8453/styled-component-prac/App.js](https://github.com/J8453/J8453.github.io/tree/master/React/styled-component/src/App.js)
 
+## Vue Practice
+- [todo in Vue](https://j8453.github.io/Vue/todos/index.html) (2020.04)<br>
+It's a simple practice after reading official guide.<br><br>
+![todosinvue](/images/todosinvue.png)
+Code: [github.com/J8453/todo-in-Vue](https://github.com/J8453/J8453.github.io/tree/master/Vue/todos/src)
 
 ## HTML&CSS
 - [flexbox practices](https://j8453.github.io/HTML&CSS/flexbox) (2020.01)
