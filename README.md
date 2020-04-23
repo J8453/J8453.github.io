@@ -12,6 +12,16 @@ The project is developed as a single page application and uses:
     - Express + MySQL<br><br>
     #### Github Repo: [github.com/J8453/gallery](https://github.com/J8453/gallery)
 
+## Vue Practice
+- [image showcase](https://j8453.github.io/Vue/img-showcase/index.html) (
+2020.04)<br>
+![img-showcase](/images/img-showcase.png)
+Code: [github.com/J8453/img-showcase](https://github.com/J8453/img-showcase)
+- [todo in Vue](https://j8453.github.io/Vue/todos/index.html) (2020.04)<br>
+It's a simple practice after reading official guide.<br><br>
+![todosinvue](/images/todosinvue.png)
+Code: [github.com/J8453/todo-in-Vue](https://github.com/J8453/J8453.github.io/tree/master/Vue/todos/src)
+
 ## React Practice
 - [instagram layout imitation](https://j8453.github.io/React/igimitation.html) (2020.04)<br>
 I was trying to mock instagram layout with 'React' and 'Semantic UI React' (an UI component library).<br><br>
@@ -26,12 +36,6 @@ Github Repo: [github.com/J8453/layout_imitation_ig](https://github.com/J8453/lay
 It's a simple practice with 'Styled-Components' (a CSS-in-JS library), and use 'Styled-System' to support.
 ![styled-component-prac](/images/styled-component-prac.png)
 Code: [github.com/J8453/styled-component-prac/App.js](https://github.com/J8453/J8453.github.io/tree/master/React/styled-component/src/App.js)
-
-## Vue Practice
-- [todo in Vue](https://j8453.github.io/Vue/todos/index.html) (2020.04)<br>
-It's a simple practice after reading official guide.<br><br>
-![todosinvue](/images/todosinvue.png)
-Code: [github.com/J8453/todo-in-Vue](https://github.com/J8453/J8453.github.io/tree/master/Vue/todos/src)
 
 ## HTML&CSS
 - [flexbox practices](https://j8453.github.io/HTML&CSS/flexbox) (2020.01)
